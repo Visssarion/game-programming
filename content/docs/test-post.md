@@ -5,3 +5,17 @@ title = 'Test Post'
 +++
 # Header
 Text
+
+
+
+
+
+
+{{< tabs >}}
+{{% tab "Math" %}} 
+{{% /tab %}}
+{{% tab "GDScript" %}}
+{{% /tab %}}
+{{% tab "C#" %}}
+{{% /tab %}}
+{{< /tabs >}}
