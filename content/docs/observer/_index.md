@@ -24,15 +24,25 @@ In this example, event is emmited in the physics check:
 
 {{< tabs >}}
 {{% tab "GDScript" %}}
+Button:
 ```gdscript
-signal on_pressed
+signal pressed
 
 func _on_body_entered(body: Node3D):
 	if body.is_in_group(&"player"):
-		on_pressed.emit()
+		pressed.emit()
 ```
+
+Door:
+```gdscript
+func _on_button_pressed():
+	open()
+```
+
+``pressed`` signal has been connected to door script through editor, and automatically generated a function name.
 {{% /tab %}}
 {{% tab "Unity" %}}
+Button:
 ```csharp
 public UnityEvent OnPressed;
 
@@ -43,6 +53,15 @@ private void OnTriggerEnter(Collider other)
 	}
 }
 ```
+
+Door:
+```csharp
+public void Activate()
+{
+	Open()
+}
+```
+``Activate`` method has been connected to ``OnPressed`` Event in the Inspector.
 {{% /tab %}}
 {{< /tabs >}}
 
@@ -56,14 +75,21 @@ In this example, event is emmited in the setter:
 
 {{< tabs >}}
 {{% tab "GDScript" %}}
+Setter emitting the signal:
 ```gdscript
-signal on_health_changed(value: float)
+signal health_changed(value: float)
 
 var health: float:
 	set(value):
 		health = value
-		on_health_changed.emit(health)
+		health_changed.emit(health)
 ```
+
+Signal ``health_changed`` can be connected to built-in methods, like `TextureProgressBar`'s `set_value`.
+
+If you need to connect it to method that requires no parameters (`Timer.start()`), you can unbind a parameter in-editor.
+
+If you need to connect it to a method that requires a parameter not provided by the signal (`AnimationPlayer.play(name: StringName)`), you can bind an additional parameter in-editor.
 {{% /tab %}}
 {{% tab "Unity" %}}
 ```csharp
