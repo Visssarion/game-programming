@@ -12,7 +12,7 @@ weight: 1
 ---
 # Vector
 
-Vector is a value that contains X amount of numbers.
+A Vector is a value that contains X amount of numbers.
 
 Vector2 contains 2 floating point numbers (x, y). Used for simulations in 2D space or projected simulations of 3D space.
 
@@ -57,15 +57,15 @@ Vector3.Dot(vectorA, vectorB);
 
 # Normalized Vector
 
-Normalized Vector has a length of 1. This means that vector expresses only the direction.
+A Normalized Vector has a length of 1. This means that vector expresses only the direction.
 
-If you multiply normalized vector by a number, you add the length component back.
+If you multiply a normalized vector by a number, you get a new vector that has a length equal to that number and pointing in the same direction as the original vector.
 
 # Basis * Vector
 
-Basis is a Matrix of X by X size. It can be seen as an X-sized array of VectorXs, every one of which express axis of an object's local space.
+A Basis is a Matrix of X by X size. It can be seen as an X-sized array of VectorXs, every one of which express axis of an object's local space.
 
-In Godot, Basis contians 3 Vector3 and represents rotation and scale of an object.
+In Godot, an object's Basis field contians 3 Vector3 and represents rotation and scale of an object.
 
 Multiplying Vector by Basis returns Vector, that was scale and rotated according to Basis.
 
@@ -106,7 +106,7 @@ In Godot, there's 2 Transform types:
 	- Vector3 z axis
 	- Vector3 origin
 
-This class contains everything you need about position in 2D or 3D space.
+This class contains everything you need to alter an object's position in 2D or 3D space.
 
 It's Unity's counterpart does both 2D and 3D and is an interface for object's basis.
 
